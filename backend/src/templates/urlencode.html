@@ -1,0 +1,36 @@
+{% extends "_layout.html" %}
+{% block title %}URL encoder and decoder{% endblock %}
+{% block description %}Encodes and decodes strings for use in URLs{% endblock %}
+
+{% block calculator %}
+    <div class="control">
+        <label for="decodedString">
+            Original string
+        </label>
+        <textarea id="decodedString"></textarea>
+    </div>
+    <div class="control">
+        <label for="encodedString">
+            Encoded string
+        </label>
+        <textarea id="encodedString"></textarea>
+    </div>
+    <script type="text/javascript">
+        window.onload = function() {
+            const decodedStringInput = document.getElementById('decodedString');
+            const encodedStringInput = document.getElementById('encodedString');
+
+            encodedStringInput.addEventListener('input', (e) => {
+                try {
+                    decodedStringInput.innerHTML = decodeURIComponent(e.target.value);
+                } catch (e) {
+                    decodedStringInput.innerHTML = 'Invalid input'
+                }
+            });
+
+            decodedStringInput.addEventListener('input', (e) => {
+                encodedStringInput.innerHTML = encodeURIComponent(e.target.value);
+            });
+        }
+    </script>
+{% endblock %}

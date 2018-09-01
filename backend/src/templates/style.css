@@ -7,5 +7,6 @@ html{font-size:18px;font-family:sans-serif;line-height:28px;color:#444;}
     #calculator{background:#eee;padding:20px;border-radius:3px;}
         .control {display:flex;flex-direction:row;margin:0.5em 0;flex-wrap:wrap;align-items: baseline;}
         .control label{flex:1 0 200px;}
-        .control input{font-size:18px;font-family:monospace;flex:1 0 70%;box-sizing:border-box;}
+        .control input, .control textarea{font-size:18px;font-family:monospace;flex:1 0 70%;box-sizing:border-box;}
+        .control textarea{width:100%;}
     footer{border-top:1px solid #ccc;}
