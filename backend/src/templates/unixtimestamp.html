@@ -13,30 +13,29 @@
 {% endblock %}
 
 {% block calculator %}
-    <label>
-        Local time <span id="timezone"></span>
-        <input id="dateInputHumanLocal" type="text"/>
-        <output id="dateOutputTimezoneLocal"></output>
-    </label>
-    <br>
-    <label>
-        UTC time
-        <input id="dateInputHumanUtc" type="text"/>
-        <output id="dateOutputHumanUtc"></output>
-    </label>
-    <br>
-    <label>
-        Unix timestamp
-        <input id="dateInputUnixUtc" type="text"/>
-        <output id="dateOutputUnixUtc"></output>
-    </label>
+    <div class="control">
+        <label>
+            Local time <span id="timezone"></span>:
+        </label>
+        <input id="dateInputHumanLocal" type="text" placeholder="????-??-?? ??:??:??" />
+    </div>
+    <div class="control">
+        <label>
+            UTC time:
+        </label>
+        <input id="dateInputHumanUtc" type="text" placeholder="????-??-?? ??:??:??" />
+    </div>
+    <div class="control">
+        <label>
+            Unix timestamp:
+        </label>
+        <input id="dateInputUnixUtc" type="number" placeholder="??????????" />
+    </div>
     <script type="text/javascript">
         window.onload = function() {
             const utcNow = moment.utc();
             const timezone = moment.tz.guess();
             const dateInputFormats = ["YYYY-MM-DD HH:mm:ss", "YYYY-MM-DD HH:mm", "YYYY-MM-DD HH", "YYYY-MM-DD", "YYYY-MM", "YYYY"];
-
-            const dateOutputTimezoneLocal = document.getElementById('dateOutputTimezoneLocal');
             const dateInputHumanLocal = document.getElementById('dateInputHumanLocal');
             const dateInputHumanUtc = document.getElementById('dateInputHumanUtc');
             const dateInputUnixUtc = document.getElementById('dateInputUnixUtc');
@@ -70,7 +69,7 @@
                     const value = localDate.tz(timezone)
                     dateInputHumanLocal.value = value.format('YYYY-MM-DD HH:mm:ss');
                 } else {
-                    dateInputHumanLocal.value = '????-??-?? ??:??:??';
+                    dateInputHumanLocal.value = '';
                 }
             }
 
@@ -79,7 +78,7 @@
                     const value = localDate.utc();
                     dateInputHumanUtc.value = value.format('YYYY-MM-DD HH:mm:ss');
                 } else {
-                    dateInputHumanUtc.value = '????-??-?? ??:??:??';
+                    dateInputHumanUtc.value = '';
                 }
             }
 
@@ -87,7 +86,7 @@
                 if (localDate.isValid()) {
                     dateInputUnixUtc.value = localDate.format('X');
                 } else {
-                    dateInputUnixUtc.value = '??????????'
+                    dateInputUnixUtc.value = ''
                 }
             }
         }
