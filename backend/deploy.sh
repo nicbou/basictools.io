@@ -1,0 +1,1 @@
+aws s3 cp --recursive backend/site/ s3://basictools.io/

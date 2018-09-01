@@ -1,1 +1,2 @@
 staticjinja==0.3.5
+awscli==1.16.6
