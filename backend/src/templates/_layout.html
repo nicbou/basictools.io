@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %} - basictools.io, simple calculators and converters</title>
+    {% block scripts %}{% endblock %}
+</head>
+<body>
+    <h1>{{ self.title() }}</h1>
+    {% block calculator %}
+    {% endblock %}
+    <article>
+        {% block content %}
+        {% endblock %}
+    </article>
+</body>
+</html>
