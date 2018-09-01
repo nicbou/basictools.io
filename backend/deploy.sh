@@ -1,1 +1,1 @@
-aws s3 cp --recursive backend/site/ s3://basictools.io/
+aws s3 cp --recursive --acl public-read site/ s3://basictools.io/
