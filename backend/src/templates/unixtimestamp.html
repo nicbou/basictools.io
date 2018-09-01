@@ -1,5 +1,6 @@
 {% extends "_layout.html" %}
-{% block title %}Date to Unix timestamp{% endblock %}
+{% block title %}Unix timestamp calculator{% endblock %}
+{% block description %}Converts Unix timestamps to dates, and dates to Unix timestamps.{% endblock %}
 
 {% block scripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -12,25 +13,23 @@
 {% endblock %}
 
 {% block calculator %}
-    <div id="calculator">
-        <label>
-            Local time <span id="timezone"></span>
-            <input id="dateInputHumanLocal" type="text"/>
-            <output id="dateOutputTimezoneLocal"></output>
-        </label>
-        <br>
-        <label>
-            UTC time
-            <input id="dateInputHumanUtc" type="text"/>
-            <output id="dateOutputHumanUtc"></output>
-        </label>
-        <br>
-        <label>
-            Unix timestamp
-            <input id="dateInputUnixUtc" type="text"/>
-            <output id="dateOutputUnixUtc"></output>
-        </label>
-    </div>
+    <label>
+        Local time <span id="timezone"></span>
+        <input id="dateInputHumanLocal" type="text"/>
+        <output id="dateOutputTimezoneLocal"></output>
+    </label>
+    <br>
+    <label>
+        UTC time
+        <input id="dateInputHumanUtc" type="text"/>
+        <output id="dateOutputHumanUtc"></output>
+    </label>
+    <br>
+    <label>
+        Unix timestamp
+        <input id="dateInputUnixUtc" type="text"/>
+        <output id="dateOutputUnixUtc"></output>
+    </label>
     <script type="text/javascript">
         window.onload = function() {
             const utcNow = moment.utc();

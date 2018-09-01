@@ -2,15 +2,33 @@
 <html>
 <head>
     <title>{% block title %}{% endblock %} - basictools.io, simple calculators and converters</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
     {% block scripts %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
 </head>
 <body>
-    <h1>{{ self.title() }}</h1>
-    {% block calculator %}
-    {% endblock %}
-    <article>
-        {% block content %}
-        {% endblock %}
-    </article>
+    <div id="content">
+        <header>
+            <h1>{{ self.title() }}</h1>
+            <p class="subtitle">{{ self.description() }}</p>
+        </header>
+        {% if self.calculator() %}
+            <div id="calculator">
+                {% block calculator %}{% endblock %}
+            </div>
+        {% endif%}
+        <article>
+            {% block content %}
+            {% endblock %}
+        </article>
+        <footer>
+            <p>
+                Made by <a href="http://nicolasbouliane.com">Nicolas Bouliane</a>
+                ·
+                <a href="/">More tools</a>
+            </p>
+        </footer>
+    </div>
 </body>
 </html>
