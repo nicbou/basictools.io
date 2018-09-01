@@ -7,13 +7,13 @@
         <label for="decodedString">
             Original string
         </label>
-        <textarea id="decodedString"></textarea>
+        <textarea id="decodedString" placeholder="Type something here"></textarea>
     </div>
     <div class="control">
         <label for="encodedString">
             Encoded string
         </label>
-        <textarea id="encodedString"></textarea>
+        <textarea id="encodedString" placeholder="Type something here"></textarea>
     </div>
     <script type="text/javascript">
         window.onload = function() {
@@ -33,4 +33,11 @@
             });
         }
     </script>
+{% endblock %}
+
+{% block content %}
+    <h2>How does this URL decoder work?</h2>
+    <p>
+        This is a very simple tool. It uses Javascript's <code>encodeURIComponent()</code> and <code>decodeURIComponent()</code> functions to encode and decode strings.
+    </p>
 {% endblock %}
